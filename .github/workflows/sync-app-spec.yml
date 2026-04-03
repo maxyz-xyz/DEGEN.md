@@ -13,4 +13,4 @@ jobs:
       - uses: digitalocean/action-doctl@v2
         with:
           token: ${{ secrets.DIGITALOCEAN_ACCESS_TOKEN }}
-      - run: doctl apps update <APP_ID> --spec .do/app.yaml
+      - run: doctl apps update 9b9e71a4-d8cc-46ad-8cc1-4f2e9878314b --spec .do/app.yaml

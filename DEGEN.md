@@ -1,6 +1,13 @@
 ---
 name: degen
-description: Registry of crypto/DeFi agent skills, MCP servers, and CLIs. Install the right tool for any onchain task.
+description: >
+  Use when the user asks about crypto, DeFi, blockchain, or onchain data and
+  you don't already have a tool installed for the task. Covers: token prices,
+  market data, portfolio tracking, wallet balances, DeFi positions, yield
+  strategies, DEX trades, NFTs, transaction history, smart contract analysis,
+  security audits, cross-chain bridging, oracle workflows, tx simulation, and
+  smart money analytics. This skill is a registry — it tells you which tool to
+  install (MCP server, skill, plugin, or CLI) for the job.
 metadata:
   author: maxyz-xyz
   version: "1.0"
@@ -13,38 +20,108 @@ metadata:
 > Install this registry: `npx skills add maxyz-xyz/DEGEN.md`
 >
 > **Last updated:** 2025-04-03
->
-> **Contributions welcome** — open a PR to add or update entries.
 
 ## Integrations
 
-Official implementations only — no community or third-party wrappers.
+Official implementations only — no community or third-party wrappers!
 
-| Protocol | Category | Description | Type | Install |
-|----------|----------|-------------|------|---------|
-| [Pendle](https://github.com/pendle-finance/pendle-ai) | DeFi | Yield trading — swap, LP, limit orders, market data | Plugin | `/plugin marketplace add pendle-finance/pendle-ai` |
-| [Alchemy](https://github.com/alchemyplatform/alchemy-mcp-server) | Data | Token prices, NFTs, tx history, balances, swaps, simulations | MCP | `claude mcp add alchemy -- npx -y @alchemy/mcp-server` |
-| [CoinGecko](https://github.com/coingecko/coingecko-cli) | Data | Token prices, market data, trending, OHLC, WebSocket streaming | CLI | `brew install coingecko/coingecko-cli/cg` |
-| [Dune](https://github.com/duneanalytics/skills) | Data | Query blockchain data, decoded tables, saved queries | Skill | `npx skills add duneanalytics/skills` |
-| [Etherscan](https://docs.etherscan.io/mcp-docs/introduction) | Data | Onchain data across 60+ EVM chains | MCP | `claude mcp add etherscan --transport http https://mcp.etherscan.io/mcp` |
-| [Octav](https://github.com/Octav-Labs/octav-api-mcp) | Data | Portfolio tracking, transactions, NAV, 20+ chains | MCP | `claude mcp add octav -- npx octav-api-mcp` |
-| [Chainlink](https://github.com/smartcontractkit/chainlink-agent-skills) | Infra | CRE workflows, CCIP cross-chain bridging | Skill | `npx skills add smartcontractkit/chainlink-agent-skills` |
-| [Coinbase AgentKit](https://github.com/coinbase/agentkit) | Infra | Onchain wallet — swaps, transfers, staking, contract deploys | MCP | `npm i @coinbase/agentkit-model-context-protocol` |
-| [Tenderly](https://docs.tenderly.co/mcp-server) | Infra | Tx simulation, debugging, tracing, Virtual TestNets | MCP | `claude mcp add tenderly --transport http https://mcp.tenderly.co/mcp` |
-| [Trail of Bits](https://github.com/trailofbits/skills) | Security | 30+ security/audit plugins — smart contracts, Semgrep, YARA | Plugin | `/plugin marketplace add trailofbits/skills` |
-| [AgentCash](https://agentcash.dev/skill.md) | Payments | Pay-per-call premium APIs via x402 micropayments | Skill | `npx agentcash@latest onboard` |
-| [Visa CLI](https://visacli.sh) | Payments | Agent payment rail — pay for APIs without key management (beta) | CLI | `visa-cli init` |
-
-## x402 APIs
-
-Official protocol APIs accessible via [x402](https://www.x402.org/) micropayments (USDC on Base). Requires [AgentCash](https://agentcash.dev) or any x402-compatible wallet.
-
-| Protocol | Description | Origin | Endpoints | Price |
-|----------|-------------|--------|-----------|-------|
-| [Nansen](https://nansen.ai) | Smart money flows, wallet profiling, token screener, PnL, prediction markets | `api.nansen.ai` | 50+ | $0.01–$7.50 |
-| [Zapper](https://zapper.xyz) | Portfolio, DeFi balances, NFTs, tx history, token rankings across 60+ chains | `public.zapper.xyz` | 17 | $0.001–$0.005 |
-| [StableCrypto](https://stablecrypto.dev) | CoinGecko + DefiLlama + Alchemy + Etherscan aggregated behind x402 | `stablecrypto.dev` | 90+ | $0.01 |
+| Protocol                                                                | Category | Description                                                                                                                                                                 | Type   | Auth                                    | Free tier? | Install                                                                   |
+| ----------------------------------------------------------------------- | -------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------ | --------------------------------------- | ---------- | ------------------------------------------------------------------------- |
+| [Pendle](https://github.com/pendle-finance/pendle-ai)                   | DeFi     | Yield trading on 7 EVM chains — swap fixed/variable yield tokens, manage LP positions, place limit orders, query APYs and market data                                       | Plugin | —                                       | Yes        | `/plugin marketplace add pendle-finance/pendle-ai`                        |
+| [Alchemy](https://github.com/alchemyplatform/alchemy-mcp-server)        | Data     | Node infrastructure — token balances, prices, NFT metadata, transfer history, tx simulation, raw JSON-RPC passthrough                                                       | MCP    | `ALCHEMY_API_KEY`                       | Yes        | `claude mcp add alchemy -- npx -y @alchemy/mcp-server`                    |
+| [CoinGecko](https://github.com/coingecko/coingecko-cli)                 | Data     | Market data — real-time prices, OHLC candles, trending coins, categories, exchange volumes, 10y+ history, live WebSocket streaming                                          | CLI    | `cg auth`                               | Yes (demo) | `brew install coingecko/coingecko-cli/cg`                                 |
+| [DefiLlama](https://github.com/DefiLlama/defillama-skills)              | Data     | DeFi analytics — TVL, yields, fees, revenue, stablecoins, bridges, ETF flows, token unlocks, hacks, treasury, oracle coverage across 200+ chains (23 MCP tools + 10 skills) | MCP    | OAuth login                             | No         | `claude mcp add defillama --transport http https://mcp.defillama.com/mcp` |
+| [Dune](https://github.com/duneanalytics/skills)                         | Data     | Analytics — write DuneSQL queries over decoded contract tables, search datasets, manage saved queries; Sim API for real-time wallet lookups                                 | Skill  | `DUNE_API_KEY`                          | Yes        | `npx skills add duneanalytics/skills`                                     |
+| [Etherscan](https://docs.etherscan.io/mcp-docs/introduction)            | Data     | Block explorer — accounts, token transfers, contract ABIs/source, event logs, gas prices, proxy RPC across 60+ EVM chains                                                   | MCP    | API key (bearer)                        | Yes        | `claude mcp add etherscan --transport http https://mcp.etherscan.io/mcp`  |
+| [Nansen](https://docs.nansen.ai/mcp/connecting)                         | Data     | Smart money — whale wallet tracking, DEX trades, PnL leaderboards, token holders, perp positions, prediction markets, address labels and related wallets                    | MCP    | `NANSEN-API-KEY` or x402                | No         | `claude mcp add --transport http nansen https://mcp.nansen.ai/ra/mcp`     |
+| [Octav](https://github.com/Octav-Labs/octav-api-mcp)                    | Data     | Portfolio analytics — aggregated holdings with DeFi positions, transaction history, NAV in multiple currencies, historical snapshots across 20+ chains                      | MCP    | `OCTAV_API_KEY`                         | No         | `claude mcp add octav -- npx octav-api-mcp`                               |
+| [Zapper](https://build.zapper.xyz/skill.md)                             | Data     | Onchain data — portfolios, DeFi/NFT balances, tx history with human-readable interpretations, token rankings, ENS/Farcaster/Lens identity resolution across 60+ chains      | MCP    | `x-zapper-api-key` or x402              | Yes        | `claude mcp add zapper -- npx mcp-remote https://mcp.zapper.xyz`          |
+| [Chainlink](https://github.com/smartcontractkit/chainlink-agent-skills) | Infra    | Oracle & messaging — CRE workflow generation, CCIP cross-chain sends, contract scaffolding, local testing, token bridging via CCT                                           | Skill  | —                                       | Yes        | `npx skills add smartcontractkit/chainlink-agent-skills`                  |
+| [Coinbase AgentKit](https://github.com/coinbase/agentkit)               | Infra    | Agent wallet — gives your agent a Smart Contract Account to swap tokens, send transfers, stake ETH, deploy contracts, sign messages                                         | MCP    | `CDP_API_KEY_ID` + `CDP_API_KEY_SECRET` | Yes        | `npm i @coinbase/agentkit-model-context-protocol`                         |
+| [Tenderly](https://docs.tenderly.co/mcp-server)                         | Infra    | Dev tooling — simulate transactions before sending, trace execution, debug reverts, manage Virtual TestNets, inspect storage and state diffs                                | MCP    | `TENDERLY_ACCESS_KEY`                   | Yes        | `claude mcp add tenderly --transport http https://mcp.tenderly.co/mcp`    |
+| [Trail of Bits](https://github.com/trailofbits/skills)                  | Security | Audit tooling — smart contract vulnerability scanners, Semgrep/YARA rule authoring, variant analysis, mutation testing, property-based testing, supply chain audits         | Plugin | —                                       | Yes        | `/plugin marketplace add trailofbits/skills`                              |
 
 ---
 
-*Know of a skill, MCP server, or agent integration we're missing? [Open a PR](https://github.com/maxyz-xyz/DEGEN.md/pulls).*
+_Know of a skill, MCP server, or official agent integration we're missing? [Open a PR](https://github.com/maxyz-xyz/DEGEN.md/pulls)._
+
+```
+                                                                                                     ░░░░░░░░░
+                                               ░░░░░   ░░░░░░░░░░  ░░░                         ░░░ ░░░░░▒▒▒░░░░░  ░░░
+                                         ▒░  ░░▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒░░ ░░                 ░ ░░▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒░░ ░░
+                                     ▒░ ░▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒░░ ░          ░░░░▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒░ ░▒
+                                   ░ ░▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒░ ░     ░ ░▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒░ ░
+                                 ░░░▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒░░░ ░░░▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒░░░
+                               ░░░▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒░░░░▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒░░
+                             ░░░▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒░░▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒░░
+                            ░░░▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒░░▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒░░
+                           ░░░▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒░░▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒░░
+                          ░░░▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒░░░░░▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒░░▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒░ ░░░░░░░░
+                         ░░░░▒▒▒▒▒▒▒▒▒▒▒▒░░░ ░░░░░░░░░░░░░░░░░   ░░░▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒░░▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒░░  ░░░▒▒▒▒▒▒▒░░░░░
+                        ░░░░▒▒▒▒▒▒▒▒▒░░ ░▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒░░░ ░░▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒ ░▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒░ ░░▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒░ ░
+                        ░░░▒▒▒▒▒▒▒▒░░▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒░  ░░▒▒▒▒▒▒▒▒▒▒░░▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒░ ░▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒░░
+                       ░░░░▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒░░░ ░░▒▒▒▒▒▒░░▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒░░ ░▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒░░▒
+                     ▒░░░░▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒░░░░░░░░░░░▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒░░ ░░▒░░▒▒▒▒▒▒░░░░    ░░░░░ ░░░▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒░░
+                   ░ ░ ░░▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒░░░▓▓██████▓▓▓▓▒▒▒░░░░░░░░▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒░░ ░░░░░░░▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒░░░░░░░░░░░░░░░░░
+                ░░░░░░░░░▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒░░   ░░▓████████████████████▓▓▒░░░░▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒░░░▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒░░░░░░▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒░░
+               ░░░░░░░░░▒▒▒▒▒▒▒▒▒░░░░░░░   ░▒░   ▒▓██████████████████████▓▒░░░▒▒▒▒▒▒▒▒▒▒▒▒▒▒░░▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒░░░░░▒▒▒▒▒▒▒▒▒▒░░░░░░░░░░░░
+              ░░░░░░░░░░▒▒▒▒▒▒▒▒▒▒▒░░▓██▓░▒███▓░   ░▓████████████████████████▓░░░▒▒▒▒▒▒▒▒▒▒▒▒░ ░▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒░░░░▒▒▒▒▒▒▒▒░░░░         ░▓▓▒░░
+             ░░░░░░░░░░▒▒▒▒▒▒▒▒▒▒▒▒▒░ ░░░ ▒█████▒    ▓██████████████████████████▓▒░░░░░░▒▒▒▒▒▒▒░░▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒░░░░▒▒▒▒▒▒▒░░░▒▓██▓░    ▒▓▒ ░▓██▓░░
+            ░░░░░░░░░░░▒▒▒▒▒▒▒▒▒▒▒▒▒▒░░   ░▓████▓░    ▒███████████████████████████████▓▓▒░░░░░▒▒░░░▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒░░░░▒▒▒▒▒▒▒░░░▒▓███████▒   ░███░ ░▓██▒ ░
+           ░░░░░░░░░░░░▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒░    ▒▓██▒      ▒█████████████████████████████████████▓░░░▒░░▒▒▒▒▒▒▒▒▒▒▒▒░ ░░▒▒▒▒▒▒▒▒░ ░▓███████████▓░   ▒▓░    ░░  ░
+           ░░░░░░░░░░░░▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒░          ░  ░▓███████████████████████████████████████▓░ ░▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒░░░▒▓███████████████▒             ░░
+          ░░░░░░░░░░░░▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒░             ▒█████████████████████████████████████████▒░▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒░░ ▒▓████████████████████▒          ░  ░
+          ░░░░░░░░░░░░▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒░░          ▒█████████████████████████████████████████▓░░ ░░░░░░░░░░░░░▓▓█████████████████████████▓░           ░
+         ░ ░░░░░░░░░░░▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒░         ▒█████████████████████████████████████████▒░███▓▓▓▓▓▓▓▓████████████████████████████████▓▒         ░
+         ░░░░░░░░░░░░░▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒░      ░▓████████████████████████████████████████▓░▓██████████████████████████████████████████████▓░    ░░
+         ░░░░░░░░░░░░░▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒░░  ░░▓██████████████████████████████████████▓▒░▓█████████████████████████████████████████████████▓ ░░░
+        ░░░░░░░░░░░░░░▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒░ ░▓████████████████████████████████████▓░░▒█████████████████████████████████████████████████▒░░▒▒░░
+        ░░░░░░░░░░░░░░▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒░░░▓█████████████████████████████▓▓░░░▒░ ░░░░▒▒▓███████████████████████████████████████▓░░░▒▒▒░ ░
+        ░░░░░░░░░░░░░░▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒░░░░▓▓███████████████████▓▓▒░░░░▒▒▒▒░░▒▒▒▒▒▒░░░▒▓███████████████████████████████▓▒░░░▒▒▒▒░ ░
+        ░░░░░░░░░░░░░░▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒░░▒▒▒▒▒▒▒▒▒▒▒▒▒▒░░░░░░░▒▒▒▒▒▒▒░░░░░░░░▒▒▒▒▒▒░░░░▒▒▒▒▒▒▒▒▒▒▒░░░░░░▒▒▒▒▓▓▓▓▓▓▓▓███▓▓▓▓▓▓▒▒░ ░░▒▒▒▒▒▒▒░░
+         ░░░░░░░░░░░░░░▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒░░ ░░▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒░ ░░▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒░░░░░░░░░░░░░░▒▒▒▒▒▒▒▒▒▒░░ ░
+         ░░░░░░░░░░░░░░▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒░  ░▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒░░  ░▒▒▒▒░ ░▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒░░▒▒▒▒▒▒▒▒▒▒▒▒▒░░ ░▒▒░░
+         ░░░░░░░░░░░░░░▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒░░░  ░░░░░▒▒▒▒▒▒▒░░░░░  ░░░▒▒▒▒▒░ ░▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒░ ░▒▒░░░░░ ░░▒▒▒▒▒▒░░
+        ░░░░░░░░░░░░░░░▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒░░░░░░░░░░░▒▒▒▒▒▒▒▒▒░░ ░░▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒░░░▒▒▒▒▒▒▒▒▒▒▒▒▒░░░░░░
+        ░░░░░░░░░░░░░░░░▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒░░░░ ░░▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░ ░░▒▒▒░░░
+        ░░░░░░░░░░░░░░░░▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒░░░░▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒░░░░░░▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒░░░░░░▒▒▒▒▒▒▒▒▒░░
+        ░░░░░░░░░░░░░░░░▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒░░░░░░░░░░░░░░▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒░░░░░░░░░░░░░░░░░░░▒▒▒▒▒░░░░░░░░░░░░▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒░
+        ░░░░░░░░░░░░░░░░░▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒░░▒▒▒▒▒▒▒▒▒▒▒░░░░░░░░░░░░░░░░░░░░▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒░░░░░░▒▒▒▒▒▒▒▒▒▒░░░░░░░░░▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒░░░░
+        ▒░░░░░░░░░░░░░░░░▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒░░▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒░░░░░▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒░░░░░░░░░░░░░░░░░░░░░░░░
+         ░░░░░░░░░░░░░░░░▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒░░▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒░░░░░░░░▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒░░░░░░░░▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒░░
+         ░░░░░░░░░░░░░░░░░▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒░ ░▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒░░░░░▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒░░░░ ░░░░░▒▒▒▒▒▒▒▒░░░░░░░░ ░░░░░░░░  ░░
+         ░ ░░░░░░░░░░░░░░░▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒░░ ░░▒▒▒▒▒▒▒▒▒▒▓▓▓▓▓▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒░░░░  ░░░▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒░░▒
+          ░░░░░░░░░░░░░░░░░▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒░░░     ░▒▓▓▓▓▓▒▒▒▒░▒▒▒▒▒▒░       ░░░░░░▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒░░
+           ░░░░░░░░░░░░░░░░▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▓▓▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒░░
+            ░ ░░░░░░░░░░░░░░▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▓▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒░░
+              ░░░░░░░░░░░░░░░▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒░░
+            ░░░░░░░░░░░░░░░░░▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒░░░
+           ░░░░░░░░░░░░░░░░░░░▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒░░░░
+         ░░░░░░░░░░ ░░░░░░░░░░░░░░░░░░░▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒░░░░░░░
+       ░░░░░░░░░░░░░░░░░░░░░░▒▒▒▒▒▒▒▒░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░▒▓▒▓▓▓▒░░░░░░░░░░░░░▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒░░░░░░░░░░░░░░░░░░░░
+     ░░░░░░░░░░░░░░░░░░░░ ░░░▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒░░░░░░░░░░░░░░▒▒▒▒▓▒░░░░░░░░░░░░░░░░░░░░░░░░░            ░░░░░░░░░░░▒▒▒▒▒▒▒░░░░░░░░░░░
+    ░░░░░░░░░░░░░░░░░░░░░░░░░░░ ░░░░░▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▓▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒░░ ░░░░░░░░░░░░░░
+    ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░    ░░░░░░░░░▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒░░░ ░░░░░░░░░░░░░░░░░░░░
+   ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░▒▒▒░░░░░░░░░    ░                           ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░▒
+  ░ ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░▒▒▒▒▒░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
+  ░ ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░▒▒▒▒▒▒░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
+  ░ ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░▒▒▒▒▒░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
+   ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░▒▒▒▒▒░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
+   ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░▒▒▒▒▒░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
+    ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░▒▓▓▒▒▒▒░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
+     ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░▒▓▓▓▒▒▒░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
+       ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░▒▒▒▒░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
+           ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░ ░
+                ▒░░  ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░  ░░
+                         ░░░░░░  ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░  ░░░░░░░
+                                       ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
+                                                                    ▒▒ ▒░░░░░░░░░░░░░░░░░░▒
+
+
+
+
+
+
+
+
+```
