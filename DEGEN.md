@@ -28,7 +28,6 @@ Included so far:
 - BNB Chain (MCP)
 - Chainlink (skill)
 - Circle (agent kit)
-- Coinbase AgentKit (MCP)
 - CoinGecko (MCP, CLI)
 - DefiLlama (MCP, skill)
 - Dune (CLI, skill, MCP)
@@ -77,7 +76,6 @@ Official implementations only — no community or third-party wrappers.
 | [Chainlink](https://github.com/smartcontractkit/chainlink-agent-skills) | Infra | Oracle & messaging — CRE workflow generation, CCIP cross-chain sends, contract scaffolding, local testing, token bridging via CCT | Skill | — | Yes | [llms.txt](https://docs.chain.link/llms.txt) | `npx skills add smartcontractkit/chainlink-agent-skills` |
 | [BNB Chain](https://github.com/bnb-chain/bnbchain-mcp) | Infra | BSC, opBNB, Greenfield — blocks, contracts, tokens, NFTs, transactions, wallet ops, ERC-8004 agent identities | MCP | — | Yes | — | `claude mcp add bnbchain -- npx -y @bnb-chain/mcp@latest` |
 | [Circle](https://github.com/circlefin/circle-ooak) | Infra | Object-Oriented Agent Kit — secure tool execution with approval workflows for USDC transfers and blockchain payments | Agent kit | — | Yes | [llms.txt](https://developers.circle.com/llms.txt) | `pip install circle-ooak` |
-| [Coinbase AgentKit](https://github.com/coinbase/agentkit) | Infra | Agent wallet — gives your agent a Smart Contract Account to swap tokens, send transfers, stake ETH, deploy contracts, sign messages (requires code-level setup, not a turnkey server) | MCP lib | `CDP_API_KEY_ID` + `CDP_API_KEY_SECRET` | Yes | [llms.txt](https://docs.cdp.coinbase.com/llms.txt) | `npm i @coinbase/agentkit @coinbase/agentkit-model-context-protocol` |
 | [MetaMask](https://github.com/MetaMask/client-mcp-core) | Infra | MCP server for MetaMask Extension — lets AI agents interact with MetaMask wallet via Playwright for testing and automation | MCP | — | Yes | [llms.txt](https://docs.metamask.io/llms.txt) | `yarn add @metamask/client-mcp-core` |
 | [OpenZeppelin](https://github.com/OpenZeppelin/openzeppelin-skills) | Infra | Secure smart contract development — Solidity, Cairo, Stylus, Stellar project setup, contract upgrades, code generation via MCP | Skill | — | Yes | — | `npx skills add OpenZeppelin/openzeppelin-skills` |
 | [QuickNode](https://github.com/quiknode-labs/qn-mcp) | Infra | Node infrastructure management — set up endpoints, monitor usage, manage QuickNode infra through natural language | MCP | `QUICKNODE_API_KEY` | Yes | — | `claude mcp add quicknode -- npx -y @quicknode/mcp` |
