@@ -1,0 +1,16 @@
+name: Sync DO App Spec
+
+on:
+  push:
+    branches: [main]
+    paths: ['.do/app.yaml']
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: digitalocean/action-doctl@v2
+        with:
+          token: ${{ secrets.DIGITALOCEAN_ACCESS_TOKEN }}
+      - run: doctl apps update <APP_ID> --spec .do/app.yaml

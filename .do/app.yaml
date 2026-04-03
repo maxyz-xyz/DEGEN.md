@@ -1,0 +1,25 @@
+name: degen-md
+region: ams
+domains:
+  - domain: degen.md
+    type: PRIMARY
+    zone: degen.md
+features:
+  - buildpack-stack=ubuntu-22
+ingress:
+  rules:
+    - component:
+        name: proxy
+      match:
+        path:
+          prefix: /
+services:
+  - name: proxy
+    github:
+      repo: maxyz-xyz/DEGEN.md
+      branch: main
+      deploy_on_push: true
+    dockerfile_path: Dockerfile
+    http_port: 8080
+    instance_count: 1
+    instance_size_slug: apps-s-1vcpu-0.5gb
