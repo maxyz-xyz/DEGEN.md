@@ -15,7 +15,7 @@ metadata:
 
 # DEGEN.md
 
-_If you are human, click here for the [markdown formatted version](https://github.com/maxyz-xyz/DEGEN.md/blob/main/DEGEN.md)._
+If you are human, go here for the markdown formatted version: https://github.com/maxyz-xyz/DEGEN.md/blob/main/DEGEN.md
 
 A human-curated list of _official_ agentic integrations for web3. All MCP servers, CLI tools, SKILL.md files, /plugins, and llms.txt endpoints that help your agent navigate the Ethereum and EVM blockchain space.
 
@@ -41,6 +41,7 @@ Included so far:
 - Pendle (plugin, MCP)
 - QuickNode (MCP)
 - Tenderly (MCP)
+- Thirdweb (MCP)
 - Trail of Bits (plugin)
 - Uniswap (plugin, skill)
 - WalletConnect (skill, CLI)
@@ -80,6 +81,7 @@ Official implementations only — no community or third-party wrappers.
 | [OpenZeppelin MCP](https://github.com/OpenZeppelin/openzeppelin-mcp) | Infra | Smart contract generation tools — code generation for Solidity, Cairo, Stylus, Stellar via MCP | MCP | — | Yes | — | `claude mcp add openzeppelin --transport http https://mcp.openzeppelin.com` |
 | [OpenZeppelin Skills](https://github.com/OpenZeppelin/openzeppelin-skills) | Infra | Secure smart contract development — project setup, contract upgrades, best practices for Solidity, Cairo, Stylus, Stellar | Skill | — | Yes | — | `npx skills add OpenZeppelin/openzeppelin-skills` |
 | [QuickNode](https://github.com/quiknode-labs/qn-mcp) | Infra | Node infrastructure management — set up endpoints, monitor usage, manage QuickNode infra through natural language | MCP | `QUICKNODE_API_KEY` | Yes | — | `claude mcp add quicknode -- npx -y @quicknode/mcp` |
+| [Thirdweb](https://github.com/thirdweb-dev/ai) | Infra | Full-stack web3 — chain data, wallet management, contract read/write, IPFS storage, natural language blockchain ops across 2000+ chains | MCP | `THIRDWEB_SECRET_KEY` | Yes | [llms.txt](https://portal.thirdweb.com/llms.txt) | `claude mcp add thirdweb -- uvx thirdweb-mcp` |
 | [Tenderly](https://docs.tenderly.co/mcp-server) | Infra | Dev tooling — simulate transactions before sending, trace execution, debug reverts, manage Virtual TestNets, inspect storage and state diffs | MCP | `TENDERLY_ACCESS_KEY` | Yes | [llms.txt](https://tenderly.co/llms.txt) | `claude mcp add tenderly --transport http https://mcp.tenderly.co/mcp` |
 | [WalletConnect CLI](https://github.com/WalletConnect/agent-sdk/tree/main/packages/cli-sdk) | Infra | Wallet connection, message signing, cross-chain bridging, WCT staking from terminal (beta) | CLI | `WALLETCONNECT_PROJECT_ID` | Yes | [llms.txt](https://docs.walletconnect.com/llms.txt) | `npm i -g @walletconnect/cli-sdk` |
 | [WalletConnect Skills](https://github.com/WalletConnect/agent-sdk/tree/main/skills) | Infra | Agent skills for wallet connection, signing, and cross-chain operations (beta) | Skill | `WALLETCONNECT_PROJECT_ID` | Yes | [llms.txt](https://docs.walletconnect.com/llms.txt) | `npx skills add WalletConnect/agent-sdk` |
