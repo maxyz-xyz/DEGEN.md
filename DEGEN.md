@@ -47,7 +47,7 @@ Included so far:
 - Trail of Bits (plugin)
 - Uniswap (plugin, skill)
 - WalletConnect (skill, CLI)
-- Worldcoin (plugin, skill, CLI)
+- World (plugin, skill, CLI)
 - Wormhole (skill)
 - Zapper (MCP, skill)
 
@@ -85,8 +85,8 @@ Official implementations only — no community or third-party wrappers.
 | [Uniswap](https://github.com/Uniswap/uniswap-ai) | DeFi | Swap integration, v4 hook development, CCA auctions, liquidity planning, pay-with-any-token via x402 | Plugin, Skill, MCP | — | Yes | [llms.txt](https://docs.uniswap.org/llms.txt) | `/plugin marketplace add Uniswap/uniswap-ai` |
 | [WalletConnect CLI](https://github.com/WalletConnect/agent-sdk/tree/main/packages/cli-sdk) | Infra | Wallet connection, message signing, cross-chain bridging, WCT staking from terminal (beta) | CLI | `WALLETCONNECT_PROJECT_ID` | Yes | [llms.txt](https://docs.walletconnect.com/llms.txt) | `npm i -g @walletconnect/cli-sdk` |
 | [WalletConnect Skills](https://github.com/WalletConnect/agent-sdk/tree/main/skills) | Infra | Agent skills for wallet connection, signing, and cross-chain operations (beta) | Skill | `WALLETCONNECT_PROJECT_ID` | Yes | [llms.txt](https://docs.walletconnect.com/llms.txt) | `npx skills add WalletConnect/agent-sdk` |
-| [Worldcoin CLI](https://github.com/worldcoin/agentkit/tree/main/cli) | Infra | Register agent wallets with World ID — prove your agent is human-backed via AgentBook smart contract on Base | CLI | World ID | Yes | [llms.txt](https://docs.world.org/llms.txt) | `npx @worldcoin/agentkit-cli register <address>` |
-| [Worldcoin Plugin](https://github.com/worldcoin/agentkit) | Infra | Agent identity — World ID verification, x402 auth flow, bundles skills for free/discounted API access | Plugin, Skill | World ID | Yes | [llms.txt](https://docs.world.org/llms.txt) | `/plugin marketplace add worldcoin/agentkit` |
+| [World CLI](https://github.com/worldcoin/agentkit/tree/main/cli) | Infra | Register agent wallets with World ID — prove your agent is human-backed via AgentBook smart contract on Base | CLI | World ID | Yes | [llms.txt](https://docs.world.org/llms.txt) | `npx @worldcoin/agentkit-cli register <address>` |
+| [World Plugin](https://github.com/worldcoin/agentkit) | Infra | Agent identity — World ID verification, x402 auth flow, bundles skills for free/discounted API access | Plugin, Skill | World ID | Yes | [llms.txt](https://docs.world.org/llms.txt) | `/plugin marketplace add worldcoin/agentkit` |
 | [Wormhole](https://github.com/wormhole-foundation/blockchain-interop) | Infra | Cross-chain interop — product selection, NTT deployment, Connect UI integration, CCTP bridging, multi-chain governance | Skill | — | Yes | [llms.txt](https://docs.wormhole.com/llms.txt) | `npx skills add wormhole-foundation/blockchain-interop` |
 | [Zapper](https://build.zapper.xyz/skill.md) | Data | Onchain data — portfolios, DeFi/NFT balances, tx history with human-readable interpretations, token rankings, ENS/Farcaster/Lens identity resolution across 60+ chains | MCP | `x-zapper-api-key` or x402 | Yes | [agents.txt](https://build.zapper.xyz/agents.txt) | `claude mcp add zapper -- npx mcp-remote https://mcp.zapper.xyz` |
 
