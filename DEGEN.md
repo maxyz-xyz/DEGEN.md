@@ -22,6 +22,8 @@ DEGEN.md is a human-curated list of _official_ agentic integrations for web3. Al
 
 Install this registry: `npx skills add maxyz-xyz/DEGEN.md`
 
+When a protocol offers multiple integration types, prefer the **plugin**; it usually bundles skills, MCP servers, and other tools into a single install.
+
 Included so far:
 
 - 1inch (MCP, skill)
@@ -33,12 +35,12 @@ Included so far:
 - DefiLlama (MCP, skill)
 - Dune (CLI, skill, MCP)
 - Etherscan (MCP)
-- GMX (skill)
+- GMX (plugin, skill)
 - Messari (skill)
 - MetaMask (MCP)
 - Nansen (MCP)
 - Octav (MCP, CLI)
-- OpenZeppelin (MCP, skill)
+- OpenZeppelin (MCP, plugin, skill)
 - Pendle (plugin, MCP)
 - QuickNode (MCP)
 - Tenderly (MCP)
@@ -46,7 +48,7 @@ Included so far:
 - Trail of Bits (plugin)
 - Uniswap (plugin, skill)
 - WalletConnect (skill, CLI)
-- Worldcoin (skill, CLI)
+- Worldcoin (plugin, skill, CLI)
 - Wormhole (skill)
 - Zapper (MCP, skill)
 
@@ -56,7 +58,8 @@ Official implementations only — no community or third-party wrappers.
 
 | Protocol | Category | Description | Type | Auth | Free tier? | llms.txt | Install |
 |----------|----------|-------------|------|------|------------|----------|---------|
-| [1inch](https://github.com/1inch/1inch-ai) | DeFi | Token swaps, limit orders, SDK examples, and authenticated product API access across EVM chains | MCP | — | Yes | [llms.txt](https://business.1inch.com/llms.txt) | `claude mcp add --transport http 1inch https://api.1inch.com/mcp/protocol` |
+| [1inch MCP](https://github.com/1inch/1inch-ai) | DeFi | Token swaps, limit orders, SDK examples, and authenticated product API access across EVM chains | MCP | — | Yes | [llms.txt](https://business.1inch.com/llms.txt) | `claude mcp add --transport http 1inch https://api.1inch.com/mcp/protocol` |
+| [1inch Skill](https://github.com/1inch/1inch-ai/tree/main/skills/1inch-mcp-server) | DeFi | Teaches agents the 1inch MCP server URL, tools, and auth patterns | Skill | — | Yes | [llms.txt](https://business.1inch.com/llms.txt) | `npx skills add 1inch/1inch-ai` |
 | [Alchemy](https://github.com/alchemyplatform/alchemy-mcp-server) | Data | Node infrastructure — token balances, prices, NFT metadata, transfer history, tx simulation, raw JSON-RPC passthrough | MCP | `ALCHEMY_API_KEY` | Yes | [llms.txt](https://www.alchemy.com/docs/llms.txt) | `claude mcp add alchemy -- npx -y @alchemy/mcp-server` |
 | [BNB Chain](https://github.com/bnb-chain/bnbchain-mcp) | Infra | BSC, opBNB, Greenfield — blocks, contracts, tokens, NFTs, transactions, wallet ops, ERC-8004 agent identities | MCP | — | Yes | — | `claude mcp add bnbchain -- npx -y @bnb-chain/mcp@latest` |
 | [Chainlink](https://github.com/smartcontractkit/chainlink-agent-skills) | Infra | Oracle & messaging — CRE workflow generation, CCIP cross-chain sends, contract scaffolding, local testing, token bridging via CCT | Skill | — | Yes | [llms.txt](https://docs.chain.link/llms.txt) | `npx skills add smartcontractkit/chainlink-agent-skills` |
@@ -69,13 +72,15 @@ Official implementations only — no community or third-party wrappers.
 | [Dune Sim MCP](https://github.com/duneanalytics/sim-api-mcp) | Data | Real-time blockchain data — EVM/SVM transactions, balances, token info across 60+ chains via Sim API | MCP | `SIM_API_KEY` | Yes | [llms.txt](https://docs.dune.com/llms.txt) | `claude mcp add dune-sim -- npx mcp-remote http://localhost:3000/mcp` |
 | [Dune Skills](https://github.com/duneanalytics/skills) | Data | Analytics — write DuneSQL queries over decoded contract tables, search datasets, manage saved queries | Skill | `DUNE_API_KEY` | Yes | [llms.txt](https://docs.dune.com/llms.txt) | `npx skills add duneanalytics/skills` |
 | [Etherscan](https://docs.etherscan.io/mcp-docs/introduction) | Data | Block explorer — accounts, token transfers, contract ABIs/source, event logs, gas prices, proxy RPC across 60+ EVM chains | MCP | API key (bearer) | Yes | [llms.txt](https://docs.etherscan.io/llms.txt) | `claude mcp add etherscan --transport http https://mcp.etherscan.io/mcp` |
-| [GMX](https://github.com/gmx-io/gmx-ai) | DeFi | Trade perpetuals (up to 100x leverage) and swap tokens on GMX V2 — positions, markets, liquidity pools, GLV vaults on Arbitrum/Avalanche | Skill | — | Yes | [llms.txt](https://docs.gmx.io/llms.txt) | `npx skills add gmx-io/gmx-ai` |
+| [GMX Plugin](https://github.com/gmx-io/gmx-ai) | DeFi | Trade perpetuals (up to 100x leverage) and swap tokens on GMX V2 — bundles skills for positions, markets, liquidity | Plugin | — | Yes | [llms.txt](https://docs.gmx.io/llms.txt) | `/plugin marketplace add gmx-io/gmx-ai` |
+| [GMX Skill](https://github.com/gmx-io/gmx-ai) | DeFi | GMX V2 trading — positions, markets, liquidity pools, GLV vaults on Arbitrum/Avalanche | Skill | — | Yes | [llms.txt](https://docs.gmx.io/llms.txt) | `npx skills add gmx-io/gmx-ai` |
 | [Messari](https://github.com/messari/skills) | Data | Crypto market intelligence — asset profiles, metrics, research, governance, protocol data via REST API and x402 | Skill | x402 | Yes | [llms.txt](https://docs.messari.io/llms.txt) | `npx skills add messari/skills` |
 | [MetaMask](https://github.com/MetaMask/client-mcp-core) | Infra | MCP server for MetaMask Extension — lets AI agents interact with MetaMask wallet via Playwright for testing and automation | MCP | — | Yes | [llms.txt](https://docs.metamask.io/llms.txt) | `yarn add @metamask/client-mcp-core` |
 | [Nansen](https://docs.nansen.ai/mcp/connecting) | Data | Smart money — whale wallet tracking, DEX trades, PnL leaderboards, token holders, perp positions, prediction markets, address labels and related wallets | MCP | `NANSEN-API-KEY` or x402 | Yes | [llms.txt](https://docs.nansen.ai/llms.txt) | `claude mcp add --transport http nansen https://mcp.nansen.ai/ra/mcp` |
 | [Octav CLI](https://github.com/Octav-Labs/octav-cli) | Data | Portfolio terminal — interactive TUI dashboard, holdings, transactions, NAV, historical snapshots, Polymarket positions across 20+ chains | CLI | `OCTAV_API_KEY` | No | [llms.txt](https://docs.octav.fi/llms.txt) | `curl -sSf https://raw.githubusercontent.com/Octav-Labs/octav-cli/main/install.sh \| sh` |
 | [Octav MCP](https://github.com/Octav-Labs/octav-api-mcp) | Data | Portfolio API as MCP — aggregated holdings with DeFi positions, transaction history, NAV in multiple currencies, historical snapshots | MCP | `OCTAV_API_KEY` | No | [llms.txt](https://docs.octav.fi/llms.txt) | `claude mcp add octav -- npx octav-api-mcp` |
 | [OpenZeppelin MCP](https://github.com/OpenZeppelin/openzeppelin-mcp) | Infra | Smart contract generation tools — code generation for Solidity, Cairo, Stylus, Stellar via MCP | MCP | — | Yes | — | `claude mcp add openzeppelin --transport http https://mcp.openzeppelin.com` |
+| [OpenZeppelin Plugin](https://github.com/OpenZeppelin/openzeppelin-skills) | Infra | Secure smart contract development — bundles skills + MCP for Solidity, Cairo, Stylus, Stellar | Plugin | — | Yes | — | `/plugin marketplace add OpenZeppelin/openzeppelin-skills` |
 | [OpenZeppelin Skills](https://github.com/OpenZeppelin/openzeppelin-skills) | Infra | Secure smart contract development — project setup, contract upgrades, best practices for Solidity, Cairo, Stylus, Stellar | Skill | — | Yes | — | `npx skills add OpenZeppelin/openzeppelin-skills` |
 | [Pendle MCP](https://github.com/pendle-finance/pendle-ai) | DeFi | Yield trading on 7 EVM chains — swap fixed/variable yield tokens, manage LP positions, place limit orders, query APYs and market data (25 tools) | MCP | — | Yes | [llms.txt](https://docs.pendle.finance/llms.txt) | `claude mcp add pendle-v2 --transport http https://api-v2.pendle.finance/core/mcp` |
 | [Pendle Plugin](https://github.com/pendle-finance/pendle-ai) | DeFi | Yield trading plugin — bundles MCP + skills for swap, LP, limit orders, market data | Plugin | — | Yes | [llms.txt](https://docs.pendle.finance/llms.txt) | `/plugin marketplace add pendle-finance/pendle-ai` |
@@ -86,7 +91,9 @@ Official implementations only — no community or third-party wrappers.
 | [Uniswap](https://github.com/Uniswap/uniswap-ai) | DeFi | Swap integration, v4 hook development, CCA auctions, liquidity planning, pay-with-any-token via x402 | Plugin | — | Yes | [llms.txt](https://docs.uniswap.org/llms.txt) | `/plugin marketplace add Uniswap/uniswap-ai` |
 | [WalletConnect CLI](https://github.com/WalletConnect/agent-sdk/tree/main/packages/cli-sdk) | Infra | Wallet connection, message signing, cross-chain bridging, WCT staking from terminal (beta) | CLI | `WALLETCONNECT_PROJECT_ID` | Yes | [llms.txt](https://docs.walletconnect.com/llms.txt) | `npm i -g @walletconnect/cli-sdk` |
 | [WalletConnect Skills](https://github.com/WalletConnect/agent-sdk/tree/main/skills) | Infra | Agent skills for wallet connection, signing, and cross-chain operations (beta) | Skill | `WALLETCONNECT_PROJECT_ID` | Yes | [llms.txt](https://docs.walletconnect.com/llms.txt) | `npx skills add WalletConnect/agent-sdk` |
-| [Worldcoin](https://github.com/worldcoin/agentkit) | Infra | Agent identity — verify agents are backed by real World ID-verified humans, get free/discounted x402 access | Skill | World ID | Yes | [llms.txt](https://docs.world.org/llms.txt) | `npx skills add worldcoin/agentkit agentkit-x402` |
+| [Worldcoin CLI](https://github.com/worldcoin/agentkit/tree/main/cli) | Infra | Register agent wallets with World ID — prove your agent is human-backed via AgentBook smart contract on Base | CLI | World ID | Yes | [llms.txt](https://docs.world.org/llms.txt) | `npx @worldcoin/agentkit-cli register <address>` |
+| [Worldcoin Plugin](https://github.com/worldcoin/agentkit) | Infra | Agent identity — bundles skills + CLI for World ID verification and x402 access | Plugin | World ID | Yes | [llms.txt](https://docs.world.org/llms.txt) | `/plugin marketplace add worldcoin/agentkit` |
+| [Worldcoin Skills](https://github.com/worldcoin/agentkit/tree/main/skills) | Infra | x402 auth flow — check 402 responses for AgentKit extension, sign CAIP-122 challenges, get free/discounted API access | Skill | World ID | Yes | [llms.txt](https://docs.world.org/llms.txt) | `npx skills add worldcoin/agentkit agentkit-x402` |
 | [Wormhole](https://github.com/wormhole-foundation/blockchain-interop) | Infra | Cross-chain interop — product selection, NTT deployment, Connect UI integration, CCTP bridging, multi-chain governance | Skill | — | Yes | [llms.txt](https://docs.wormhole.com/llms.txt) | `npx skills add wormhole-foundation/blockchain-interop` |
 | [Zapper](https://build.zapper.xyz/skill.md) | Data | Onchain data — portfolios, DeFi/NFT balances, tx history with human-readable interpretations, token rankings, ENS/Farcaster/Lens identity resolution across 60+ chains | MCP | `x-zapper-api-key` or x402 | Yes | [agents.txt](https://build.zapper.xyz/agents.txt) | `claude mcp add zapper -- npx mcp-remote https://mcp.zapper.xyz` |
 
