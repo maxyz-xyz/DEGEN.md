@@ -37,6 +37,7 @@ Included so far:
 - GMX (plugin, skill)
 - Messari (skill)
 - MetaMask (MCP)
+- Morpho (plugin, skill, MCP)
 - Nansen (MCP)
 - Octav (MCP, CLI)
 - OpenZeppelin (MCP, plugin, skill)
@@ -72,6 +73,7 @@ Official implementations only — no community or third-party wrappers.
 | [GMX](https://github.com/gmx-io/gmx-ai) | DeFi | Trade perpetuals (up to 100x leverage) and swap tokens on GMX V2 — positions, markets, liquidity pools, GLV vaults on Arbitrum/Avalanche | Plugin, Skill | — | Yes | [llms.txt](https://docs.gmx.io/llms.txt) | `/plugin marketplace add gmx-io/gmx-ai` |
 | [Messari](https://github.com/messari/skills) | Data | Crypto market intelligence — asset profiles, metrics, research, governance, protocol data via REST API and x402 | Skill | x402 | Yes | [llms.txt](https://docs.messari.io/llms.txt) | `npx skills add messari/skills` |
 | [MetaMask](https://github.com/MetaMask/client-mcp-core) | Infra | MCP server for MetaMask Extension — lets AI agents interact with MetaMask wallet via Playwright for testing and automation | MCP | — | Yes | [llms.txt](https://docs.metamask.io/llms.txt) | `yarn add @metamask/client-mcp-core` |
+| [Morpho](https://github.com/morpho-org/morpho-skills) | DeFi | Agent toolkit — query vaults, markets, and user positions, simulate outcomes, prepare unsigned lending transactions, and scaffold Morpho integrations on Ethereum and Base | Plugin, Skill, MCP | — | Yes | [llms.txt](https://docs.morpho.org/llms.txt) | `/plugin marketplace add morpho-org/morpho-skills` |
 | [Nansen](https://docs.nansen.ai/mcp/connecting) | Data | Smart money — whale wallet tracking, DEX trades, PnL leaderboards, token holders, perp positions, prediction markets, address labels and related wallets | MCP | `NANSEN-API-KEY` or x402 | Yes | [llms.txt](https://docs.nansen.ai/llms.txt) | `claude mcp add --transport http nansen https://mcp.nansen.ai/ra/mcp` |
 | [Octav CLI](https://github.com/Octav-Labs/octav-cli) | Data | Portfolio terminal — interactive TUI dashboard, holdings, transactions, NAV, historical snapshots, Polymarket positions across 20+ chains | CLI | `OCTAV_API_KEY` | No | [llms.txt](https://docs.octav.fi/llms.txt) | `curl -sSf https://raw.githubusercontent.com/Octav-Labs/octav-cli/main/install.sh \| sh` |
 | [Octav MCP](https://github.com/Octav-Labs/octav-api-mcp) | Data | Portfolio API as MCP — aggregated holdings with DeFi positions, transaction history, NAV in multiple currencies, historical snapshots | MCP | `OCTAV_API_KEY` | No | [llms.txt](https://docs.octav.fi/llms.txt) | `claude mcp add octav -- npx octav-api-mcp` |
@@ -94,4 +96,4 @@ Official implementations only — no community or third-party wrappers.
 
 _Know of a skill, MCP server, or official agent integration we're missing? [Open a PR](https://github.com/maxyz-xyz/DEGEN.md/pulls)._
 
-_Last updated: 2026-04-04_
+_Last updated: 2026-04-10_
