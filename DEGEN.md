@@ -33,7 +33,7 @@ Included so far:
 - CoinGecko (MCP, CLI)
 - DefiLlama (MCP, skill)
 - Dune (CLI, skill, MCP)
-- Etherscan (MCP)
+- Etherscan (skill, MCP)
 - GMX (plugin, skill)
 - Messari (skill)
 - MetaMask (MCP)
@@ -50,7 +50,7 @@ Included so far:
 - WalletConnect (skill, CLI)
 - World (plugin, skill, CLI)
 - Wormhole (skill)
-- Zapper (MCP, skill)
+- Zapper (skill, MCP)
 
 ## Integrations
 
@@ -69,7 +69,7 @@ Official implementations only — no community or third-party wrappers.
 | [Dune CLI](https://github.com/duneanalytics/cli) | Data | Query engine — run DuneSQL from terminal, manage saved queries, monitor credit usage | CLI | `DUNE_API_KEY` | Yes | [llms.txt](https://docs.dune.com/llms.txt) | `curl -sSfL https://github.com/duneanalytics/cli/raw/main/install.sh \| bash` |
 | [Dune Sim MCP](https://github.com/duneanalytics/sim-api-mcp) | Data | Real-time blockchain data — EVM/SVM transactions, balances, token info across 60+ chains via Sim API | MCP | `SIM_API_KEY` | Yes | [llms.txt](https://docs.dune.com/llms.txt) | `claude mcp add dune-sim -- npx mcp-remote http://localhost:3000/mcp` |
 | [Dune Skills](https://github.com/duneanalytics/skills) | Data | Analytics — write DuneSQL queries over decoded contract tables, search datasets, manage saved queries | Skill | `DUNE_API_KEY` | Yes | [llms.txt](https://docs.dune.com/llms.txt) | `npx skills add duneanalytics/skills` |
-| [Etherscan](https://docs.etherscan.io/mcp-docs/introduction) | Data | Block explorer — accounts, token transfers, contract ABIs/source, event logs, gas prices, proxy RPC across 60+ EVM chains | MCP | API key (bearer) | Yes | [llms.txt](https://docs.etherscan.io/llms.txt) | `claude mcp add etherscan --transport http https://mcp.etherscan.io/mcp` |
+| [Etherscan](https://docs.etherscan.io/mcp-docs/introduction) | Data | Block explorer — accounts, token transfers, contract ABIs/source, event logs, gas prices, proxy RPC across 60+ EVM chains | Skill, MCP | API key (bearer) | Yes | [llms.txt](https://docs.etherscan.io/llms.txt) | `npx skills add https://docs.etherscan.io` |
 | [GMX](https://github.com/gmx-io/gmx-ai) | DeFi | Trade perpetuals (up to 100x leverage) and swap tokens on GMX V2 — positions, markets, liquidity pools, GLV vaults on Arbitrum/Avalanche | Plugin, Skill | — | Yes | [llms.txt](https://docs.gmx.io/llms.txt) | `/plugin marketplace add gmx-io/gmx-ai` |
 | [Messari](https://github.com/messari/skills) | Data | Crypto market intelligence — asset profiles, metrics, research, governance, protocol data via REST API and x402 | Skill | x402 | Yes | [llms.txt](https://docs.messari.io/llms.txt) | `npx skills add messari/skills` |
 | [MetaMask](https://github.com/MetaMask/client-mcp-core) | Infra | MCP server for MetaMask Extension — lets AI agents interact with MetaMask wallet via Playwright for testing and automation | MCP | — | Yes | [llms.txt](https://docs.metamask.io/llms.txt) | `yarn add @metamask/client-mcp-core` |
@@ -90,7 +90,7 @@ Official implementations only — no community or third-party wrappers.
 | [World CLI](https://github.com/worldcoin/agentkit/tree/main/cli) | Infra | Register agent wallets with World ID — prove your agent is human-backed via AgentBook smart contract on Base | CLI | World ID | Yes | [llms.txt](https://docs.world.org/llms.txt) | `npx @worldcoin/agentkit-cli register <address>` |
 | [World Plugin](https://github.com/worldcoin/agentkit) | Infra | Agent identity — World ID verification, x402 auth flow, bundles skills for free/discounted API access | Plugin, Skill | World ID | Yes | [llms.txt](https://docs.world.org/llms.txt) | `/plugin marketplace add worldcoin/agentkit` |
 | [Wormhole](https://github.com/wormhole-foundation/blockchain-interop) | Infra | Cross-chain interop — product selection, NTT deployment, Connect UI integration, CCTP bridging, multi-chain governance | Skill | — | Yes | [llms.txt](https://docs.wormhole.com/llms.txt) | `npx skills add wormhole-foundation/blockchain-interop` |
-| [Zapper](https://build.zapper.xyz/skill.md) | Data | Onchain data — portfolios, DeFi/NFT balances, tx history with human-readable interpretations, token rankings, ENS/Farcaster/Lens identity resolution across 60+ chains | MCP | `x-zapper-api-key` or x402 | Yes | [agents.txt](https://build.zapper.xyz/agents.txt) | `claude mcp add zapper -- npx mcp-remote https://mcp.zapper.xyz` |
+| [Zapper](https://build.zapper.xyz) | Data | Onchain data — portfolios, DeFi/NFT balances, tx history with human-readable interpretations, token rankings, ENS/Farcaster/Lens identity resolution across 60+ chains | Skill, MCP | `x-zapper-api-key` or x402 | Yes | [agents.txt](https://build.zapper.xyz/agents.txt) | `npx skills add https://build.zapper.xyz` |
 
 ---
 
