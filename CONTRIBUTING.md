@@ -56,11 +56,24 @@ One row per **repo**. Only split into multiple rows when the integration types l
 When a protocol offers multiple integration types, the Install column should use this priority:
 
 1. **Plugin** — `/plugin marketplace add org/repo` (bundles skills, sometimes MCP)
-2. **Skill** — `npx skills add org/repo`
+2. **Skill** — `npx skills add org/repo` or `npx skills add https://docs.protocol.com`
 3. **MCP** — `claude mcp add name ...`
 4. **CLI** — package manager install command
 
 Plugins usually bundle skills and sometimes MCP servers into a single install, so prefer the plugin command unless the MCP server is in a separate repo.
+
+##### Skill install URL forms
+
+`npx skills add` accepts multiple formats beyond `<org/repo>`:
+
+- GitHub shorthand: `npx skills add duneanalytics/skills`
+- Full GitHub URL: `npx skills add https://github.com/duneanalytics/skills`
+- Path to specific skill: `npx skills add https://github.com/org/repo/tree/main/skills/foo`
+- Arbitrary URL hosting SKILL.md: `npx skills add https://docs.etherscan.io`
+- GitLab / any git URL: `npx skills add https://gitlab.com/org/repo`
+- Local path: `npx skills add ./my-local-skills`
+
+Prefer the GitHub repo form (`org/repo`) when a protocol publishes their skills to a public repo — it's version-controlled, auditable, and usually includes references and scripts beyond just SKILL.md. Use the URL form only when the protocol hosts SKILL.md directly on their docs with no public repo (e.g. Etherscan, Zapper).
 
 #### Description style
 
