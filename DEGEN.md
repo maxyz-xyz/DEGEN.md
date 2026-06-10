@@ -43,6 +43,7 @@ Included so far:
 - OpenZeppelin (MCP, plugin, skill)
 - Pendle (plugin, MCP)
 - QuickNode (MCP)
+- Stake DAO (skill)
 - Tenderly (MCP)
 - Thirdweb (MCP)
 - Trail of Bits (plugin)
@@ -81,6 +82,7 @@ Official implementations only — no community or third-party wrappers.
 | [OpenZeppelin Plugin](https://github.com/OpenZeppelin/openzeppelin-skills) | Infra | Secure smart contract development — bundles skills + MCP for project setup, contract upgrades, Solidity, Cairo, Stylus, Stellar | Plugin, Skill, MCP | — | Yes | — | `/plugin marketplace add OpenZeppelin/openzeppelin-skills` |
 | [Pendle](https://github.com/pendle-finance/pendle-ai) | DeFi | Yield trading on 7 EVM chains — swap fixed/variable yield tokens, manage LP positions, place limit orders, query APYs and market data (25 MCP tools) | MCP | — | Yes | [llms.txt](https://docs.pendle.finance/llms.txt) | `/plugin marketplace add pendle-finance/pendle-ai` |
 | [QuickNode](https://github.com/quiknode-labs/qn-mcp) | Infra | Node infrastructure management — set up endpoints, monitor usage, manage QuickNode infra through natural language | MCP | `QUICKNODE_API_KEY` | Yes | — | `claude mcp add quicknode -- npx -y @quicknode/mcp` |
+| [Stake DAO](https://github.com/stake-dao/stakedao-skills) | DeFi | Yield platform assistant — query live vaults, liquid lockers (sdCRV/sdBAL/sdFXN), token prices, merkle claims, and lending positions/health factors via the Hub API, plus protocol TVL/fees and docs navigation | Skill | — | Yes | [llms.txt](https://docs.stakedao.org/llms.txt) | `npx skills add stake-dao/stakedao-skills` |
 | [Tenderly](https://docs.tenderly.co/mcp-server) | Infra | Dev tooling — simulate transactions before sending, trace execution, debug reverts, manage Virtual TestNets, inspect storage and state diffs | MCP | `TENDERLY_ACCESS_KEY` | Yes | [llms.txt](https://tenderly.co/llms.txt) | `claude mcp add tenderly --transport http https://mcp.tenderly.co/mcp` |
 | [Thirdweb](https://github.com/thirdweb-dev/ai) | Infra | Full-stack web3 — chain data, wallet management, contract read/write, IPFS storage, natural language blockchain ops across 2000+ chains | MCP | `THIRDWEB_SECRET_KEY` | Yes | [llms.txt](https://portal.thirdweb.com/llms.txt) | `claude mcp add thirdweb -- uvx thirdweb-mcp` |
 | [Trail of Bits](https://github.com/trailofbits/skills) | Security | Audit tooling — smart contract vulnerability scanners, Semgrep/YARA rule authoring, variant analysis, mutation testing, property-based testing, supply chain audits | Plugin, Skill | — | Yes | [llms.txt](https://trailofbits.com/llms.txt) | `/plugin marketplace add trailofbits/skills` |
@@ -96,4 +98,4 @@ Official implementations only — no community or third-party wrappers.
 
 _Know of a skill, MCP server, or official agent integration we're missing? [Open a PR](https://github.com/maxyz-xyz/DEGEN.md/pulls)._
 
-_Last updated: 2026-04-10_
+_Last updated: 2026-06-10_
