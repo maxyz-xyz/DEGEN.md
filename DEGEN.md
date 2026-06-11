@@ -42,6 +42,7 @@ Included so far:
 - Octav (MCP, CLI)
 - OpenZeppelin (MCP, plugin, skill)
 - Pendle (plugin, MCP)
+- Polygon (skill, CLI)
 - QuickNode (MCP)
 - Stake DAO (skill)
 - Tenderly (MCP)
@@ -81,6 +82,7 @@ Official implementations only — no community or third-party wrappers.
 | [OpenZeppelin MCP](https://github.com/OpenZeppelin/openzeppelin-mcp) | Infra | Smart contract generation tools — code generation for Solidity, Cairo, Stylus, Stellar via MCP | MCP | — | Yes | — | `claude mcp add openzeppelin --transport http https://mcp.openzeppelin.com` |
 | [OpenZeppelin Plugin](https://github.com/OpenZeppelin/openzeppelin-skills) | Infra | Secure smart contract development — bundles skills + MCP for project setup, contract upgrades, Solidity, Cairo, Stylus, Stellar | Plugin, Skill, MCP | — | Yes | — | `/plugin marketplace add OpenZeppelin/openzeppelin-skills` |
 | [Pendle](https://github.com/pendle-finance/pendle-ai) | DeFi | Yield trading on 7 EVM chains — swap fixed/variable yield tokens, manage LP positions, place limit orders, query APYs and market data (25 MCP tools) | MCP | — | Yes | [llms.txt](https://docs.pendle.finance/llms.txt) | `/plugin marketplace add pendle-finance/pendle-ai` |
+| [Polygon Agent CLI](https://github.com/0xPolygon/polygon-agent-cli) | Infra | Agent payments toolkit — session smart contract wallets, token sends/swaps/bridges, ERC-8004 identity/reputation, x402 micropayments on Polygon | Skill, CLI | `SEQUENCE_PROJECT_ACCESS_KEY` | Yes | [llms.txt](https://docs.polygon.technology/llms.txt) | `npx skills add https://github.com/0xPolygon/polygon-agent-cli` |
 | [QuickNode](https://github.com/quiknode-labs/qn-mcp) | Infra | Node infrastructure management — set up endpoints, monitor usage, manage QuickNode infra through natural language | MCP | `QUICKNODE_API_KEY` | Yes | — | `claude mcp add quicknode -- npx -y @quicknode/mcp` |
 | [Stake DAO](https://github.com/stake-dao/stakedao-skills) | DeFi | Yield platform assistant — query live vaults, liquid lockers (sdCRV/sdBAL/sdFXN), token prices, merkle claims, and lending positions/health factors via the Hub API, plus protocol TVL/fees and docs navigation | Skill | — | Yes | [llms.txt](https://docs.stakedao.org/llms.txt) | `npx skills add stake-dao/stakedao-skills` |
 | [Tenderly](https://docs.tenderly.co/mcp-server) | Infra | Dev tooling — simulate transactions before sending, trace execution, debug reverts, manage Virtual TestNets, inspect storage and state diffs | MCP | `TENDERLY_ACCESS_KEY` | Yes | [llms.txt](https://tenderly.co/llms.txt) | `claude mcp add tenderly --transport http https://mcp.tenderly.co/mcp` |
