@@ -28,6 +28,7 @@ Included so far:
 
 - 1inch (plugin, skill, MCP)
 - Alchemy (MCP)
+- Base (skill, MCP)
 - BNB Chain (MCP)
 - Chainlink (skill)
 - CoinGecko (MCP, CLI)
@@ -62,6 +63,7 @@ Official implementations only — no community or third-party wrappers.
 |----------|----------|-------------|------|------|------------|----------|---------|
 | [1inch](https://github.com/1inch/1inch-ai) | DeFi | Token swaps, limit orders, SDK examples, and authenticated product API access across EVM chains | Plugin, Skill, MCP | API key or OAuth for protected tools | Yes (public tools) | [llms.txt](https://business.1inch.com/llms.txt) | `claude mcp add --transport http --scope user 1inch-mcp https://api.1inch.com/mcp/protocol` |
 | [Alchemy](https://github.com/alchemyplatform/alchemy-mcp-server) | Data | Node infrastructure — token balances, prices, NFT metadata, transfer history, tx simulation, raw JSON-RPC passthrough | MCP | `ALCHEMY_API_KEY` | Yes | [llms.txt](https://www.alchemy.com/docs/llms.txt) | `claude mcp add alchemy -- npx -y @alchemy/mcp-server` |
+| [Base](https://github.com/base/skills) | Infra | Agent wallet via Base Account — balances, sends, swaps, signing, x402 payments, batched calls (EIP-5792), tx history, plus 20+ third-party DeFi/NFT plugins (Uniswap, Morpho, Aerodrome, OpenSea, etc.) | Skill, MCP | OAuth (Base Account approval) | Yes | [llms.txt](https://docs.base.org/llms.txt) | `claude mcp add --transport http base-mcp https://mcp.base.org` |
 | [BNB Chain](https://github.com/bnb-chain/bnbchain-mcp) | Infra | BSC, opBNB, Greenfield — blocks, contracts, tokens, NFTs, transactions, wallet ops, ERC-8004 agent identities | MCP | `PRIVATE_KEY` optional for write/wallet ops | Yes | — | `claude mcp add bnbchain -- npx -y @bnb-chain/mcp@latest` |
 | [Chainlink](https://github.com/smartcontractkit/chainlink-agent-skills) | Infra | Oracle & messaging skills — CRE workflows, CCIP transfers/CCT, Data Feeds, Data Streams, VRF, ACE compliance, confidential AI attestation | Skill | — | Yes | [llms.txt](https://docs.chain.link/llms.txt) | `npx skills add smartcontractkit/chainlink-agent-skills` |
 | [CoinGecko CLI](https://github.com/coingecko/coingecko-cli) | Data | Market data — real-time prices, OHLC candles, trending coins, categories, exchange volumes, 10y+ history, paid live WebSocket streaming | CLI | `cg auth` | Yes (demo; some commands paid) | [llms.txt](https://docs.coingecko.com/llms.txt) | `brew install coingecko/coingecko-cli/cg` |
@@ -100,4 +102,4 @@ Official implementations only — no community or third-party wrappers.
 
 _Know of a skill, MCP server, or official agent integration we're missing? [Open a PR](https://github.com/maxyz-xyz/DEGEN.md/pulls)._
 
-_Last updated: 2026-06-12_
+_Last updated: 2026-07-08_
