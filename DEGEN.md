@@ -33,6 +33,7 @@ Included so far:
 - Chainlink (skill)
 - CoinGecko (MCP, CLI)
 - DefiLlama (MCP, skill)
+- DRPC (plugin, skill, MCP)
 - Dune (CLI, skill, MCP)
 - Etherscan (MCP)
 - GMX (plugin, skill)
@@ -70,6 +71,7 @@ Official implementations only — no community or third-party wrappers.
 | [CoinGecko MCP](https://github.com/coingecko/coingecko-typescript/tree/main/packages/mcp-server) | Data | CoinGecko API as MCP — prices, markets, OHLC, onchain pools, DEX data, 200+ chains, 8M+ tokens | MCP | `COINGECKO_DEMO_API_KEY` or `COINGECKO_PRO_API_KEY` | Yes (demo; some endpoints paid) | [llms.txt](https://docs.coingecko.com/llms.txt) | `claude mcp add coingecko -- npx -y @coingecko/coingecko-mcp` |
 | [DefiLlama MCP](https://api-docs.defillama.com) | Data | DeFi analytics — TVL, yields, fees, revenue, stablecoins, bridges, ETF flows, token unlocks, hacks, treasury, oracle coverage across 200+ chains (23 tools) | MCP | OAuth login | No | [llms.txt](https://api-docs.defillama.com/llms.txt) | `claude mcp add defillama --transport http https://mcp.defillama.com/mcp` |
 | [DefiLlama Skills](https://github.com/DefiLlama/defillama-skills) | Data | Guided workflows — protocol deep dives, yield strategies, risk assessment, market analysis, token research (10 skills on top of MCP) | Skill | OAuth login | No | [llms.txt](https://api-docs.defillama.com/llms.txt) | `npx skills add DefiLlama/defillama-skills` |
+| [DRPC](https://github.com/drpcorg/drpc-agent-skills) | Infra | Decentralized RPC gateway — 16 MCP tools (balances, blocks, tx receipts, logs, contract calls, gas, raw/batch JSON-RPC) across 200+ consensus-validated networks | Plugin, Skill, MCP | API key (auto via x402) or free key at drpc.org | Yes | [llms.txt](https://drpc.org/llms.txt) | `claude plugins marketplace add drpcorg/drpc-agent-skills` |
 | [Dune CLI](https://github.com/duneanalytics/cli) | Data | Query engine — run DuneSQL from terminal, manage saved queries, monitor credit usage | CLI | `DUNE_API_KEY` | Yes | [llms.txt](https://docs.dune.com/llms.txt) | `curl -sSfL https://github.com/duneanalytics/cli/raw/main/install.sh \| bash` |
 | [Dune MCP](https://docs.dune.com/api-reference/agents/mcp) | Data | Onchain analytics MCP — discover tables, create and run DuneSQL queries, inspect results, manage visualizations, dashboards, and usage | MCP | OAuth or `x-dune-api-key` | Yes | [llms.txt](https://docs.dune.com/llms.txt) | `claude mcp add --scope user --transport http dune https://api.dune.com/mcp/v1` |
 | [Dune Skills](https://github.com/duneanalytics/skills) | Data | Analytics skills — DuneSQL queries, dataset search, saved-query management, and Sim wallet/token lookups | Skill | `DUNE_API_KEY`; `DUNE_SIM_API_KEY` for Sim | Yes | [llms.txt](https://docs.dune.com/llms.txt) | `npx skills add duneanalytics/skills` |
@@ -102,4 +104,4 @@ Official implementations only — no community or third-party wrappers.
 
 _Know of a skill, MCP server, or official agent integration we're missing? [Open a PR](https://github.com/maxyz-xyz/DEGEN.md/pulls)._
 
-_Last updated: 2026-07-09_
+_Last updated: 2026-07-10_
