@@ -36,6 +36,7 @@ Included so far:
 - DRPC (plugin, skill, MCP)
 - Dune (CLI, skill, MCP)
 - Etherscan (MCP)
+- Fireblocks (MCP)
 - GMX (plugin, skill)
 - Messari (skill)
 - MetaMask (MCP, skill, CLI)
@@ -76,6 +77,7 @@ Official implementations only — no community or third-party wrappers.
 | [Dune MCP](https://docs.dune.com/api-reference/agents/mcp) | Data | Onchain analytics MCP — discover tables, create and run DuneSQL queries, inspect results, manage visualizations, dashboards, and usage | MCP | OAuth or `x-dune-api-key` | Yes | [llms.txt](https://docs.dune.com/llms.txt) | `claude mcp add --scope user --transport http dune https://api.dune.com/mcp/v1` |
 | [Dune Skills](https://github.com/duneanalytics/skills) | Data | Analytics skills — DuneSQL queries, dataset search, saved-query management, and Sim wallet/token lookups | Skill | `DUNE_API_KEY`; `DUNE_SIM_API_KEY` for Sim | Yes | [llms.txt](https://docs.dune.com/llms.txt) | `npx skills add duneanalytics/skills` |
 | [Etherscan](https://docs.etherscan.io/ai/mcp) | Data | Block explorer — accounts, token transfers, contract ABIs/source, event logs, gas prices, proxy RPC across 60+ EVM chains | MCP | `ETHERSCAN_API_KEY` bearer | Yes | [llms.txt](https://docs.etherscan.io/llms.txt) | `claude mcp add etherscan --transport http https://mcp.etherscan.io/mcp --header "Authorization: Bearer <ETHERSCAN_API_KEY>"` |
+| [Fireblocks](https://github.com/fireblocks/fireblocks-mcp) | Infra | Institutional custody MCP — query/create transactions, vault accounts & balances, exchange accounts, network connections, policies, wallets, and users (write ops off by default) | MCP | `FIREBLOCKS_API_KEY` + `FIREBLOCKS_PRIVATE_KEY_PATH` | No | [llms.txt](https://developers.fireblocks.com/llms.txt) | `claude mcp add fireblocks -- npx -y @fireblocks/mcp-server` |
 | [GMX](https://github.com/gmx-io/gmx-ai) | DeFi | Trade perpetuals (up to 100x leverage) and swap tokens on GMX V2 — positions, markets, liquidity pools, GLV vaults on Arbitrum/Avalanche/Botanix | Plugin, Skill | — | Yes | [llms.txt](https://docs.gmx.io/llms.txt) | `/plugin marketplace add gmx-io/gmx-ai` |
 | [Messari](https://github.com/messari/skills) | Data | Crypto market intelligence — asset profiles, metrics, research, governance, protocol data via REST API and x402 | Skill | `MESSARI_API_KEY` or x402 | Yes | [llms.txt](https://docs.messari.io/llms.txt) | `npx skills add messari/skills` |
 | [MetaMask](https://github.com/MetaMask/client-mcp-core) | Infra | MetaMask Extension automation — local agent daemon, `mm` CLI, and agent skill for Playwright-based wallet testing and workflows | MCP, Skill, CLI | — | Yes | [llms.txt](https://docs.metamask.io/llms.txt) | `npm install -g @metamask/client-mcp-core` |
