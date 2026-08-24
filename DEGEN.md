@@ -35,7 +35,7 @@ Included so far:
 - DefiLlama (MCP, skill)
 - DRPC (plugin, skill, MCP)
 - Dune (CLI, skill, MCP)
-- Etherscan (MCP)
+- Etherscan (MCP, CLI, Skill)
 - Fireblocks (MCP)
 - GMX (plugin, skill)
 - Messari (skill)
@@ -76,7 +76,9 @@ Official implementations only — no community or third-party wrappers.
 | [Dune CLI](https://github.com/duneanalytics/cli) | Data | Query engine — run DuneSQL from terminal, manage saved queries, monitor credit usage | CLI | `DUNE_API_KEY` | Yes | [llms.txt](https://docs.dune.com/llms.txt) | `curl -sSfL https://github.com/duneanalytics/cli/raw/main/install.sh \| bash` |
 | [Dune MCP](https://docs.dune.com/api-reference/agents/mcp) | Data | Onchain analytics MCP — discover tables, create and run DuneSQL queries, inspect results, manage visualizations, dashboards, and usage | MCP | OAuth or `x-dune-api-key` | Yes | [llms.txt](https://docs.dune.com/llms.txt) | `claude mcp add --scope user --transport http dune https://api.dune.com/mcp/v1` |
 | [Dune Skills](https://github.com/duneanalytics/skills) | Data | Analytics skills — DuneSQL queries, dataset search, saved-query management, and Sim wallet/token lookups | Skill | `DUNE_API_KEY`; `DUNE_SIM_API_KEY` for Sim | Yes | [llms.txt](https://docs.dune.com/llms.txt) | `npx skills add duneanalytics/skills` |
-| [Etherscan](https://docs.etherscan.io/ai/mcp) | Data | Block explorer — accounts, token transfers, contract ABIs/source, event logs, gas prices, proxy RPC across 60+ EVM chains | MCP | `ETHERSCAN_API_KEY` bearer | Yes | [llms.txt](https://docs.etherscan.io/llms.txt) | `claude mcp add etherscan --transport http https://mcp.etherscan.io/mcp --header "Authorization: Bearer <ETHERSCAN_API_KEY>"` |
+| [Etherscan CLI](https://github.com/etherscan/etherscan-cli) | Data | Terminal client — accounts, contracts, tokens, logs, gas, stats, and proxy RPC across 60+ EVM chains, with JSON/table/CSV output and an interactive TUI explorer | CLI | `ETHERSCAN_API_KEY` or `etherscan login` | Yes | [llms.txt](https://docs.etherscan.io/llms.txt) | `brew install etherscan/etherscan-cli/etherscan` |
+| [Etherscan MCP](https://docs.etherscan.io/build-with-ai/mcp) | Data | Block explorer — accounts, token transfers, contract ABIs/source, event logs, gas prices, proxy RPC across 60+ EVM chains | MCP | `ETHERSCAN_API_KEY` bearer | Yes | [llms.txt](https://docs.etherscan.io/llms.txt) | `claude mcp add etherscan --transport http https://mcp.etherscan.io/mcp --header "Authorization: Bearer <ETHERSCAN_API_KEY>"` |
+| [Etherscan Skills](https://github.com/etherscan/skills) | Data | Installable skills on top of the MCP/CLI — task orchestrator, Flow (trace/verify/visualize money flows into a case file), contract review, and transaction debugger | Skill | `ETHERSCAN_API_KEY` (resolved via CLI/MCP/env) | Yes | [llms.txt](https://docs.etherscan.io/llms.txt) | `npx skills add etherscan/skills` |
 | [Fireblocks](https://github.com/fireblocks/fireblocks-mcp) | Infra | Institutional custody MCP — query/create transactions, vault accounts & balances, exchange accounts, network connections, policies, wallets, and users (write ops off by default) | MCP | `FIREBLOCKS_API_KEY` + `FIREBLOCKS_PRIVATE_KEY_PATH` | No | [llms.txt](https://developers.fireblocks.com/llms.txt) | `claude mcp add fireblocks -- npx -y @fireblocks/mcp-server` |
 | [GMX](https://github.com/gmx-io/gmx-ai) | DeFi | Trade perpetuals (up to 100x leverage) and swap tokens on GMX V2 — positions, markets, liquidity pools, GLV vaults on Arbitrum/Avalanche/Botanix | Plugin, Skill | — | Yes | [llms.txt](https://docs.gmx.io/llms.txt) | `/plugin marketplace add gmx-io/gmx-ai` |
 | [Messari](https://github.com/messari/skills) | Data | Crypto market intelligence — asset profiles, metrics, research, governance, protocol data via REST API and x402 | Skill | `MESSARI_API_KEY` or x402 | Yes | [llms.txt](https://docs.messari.io/llms.txt) | `npx skills add messari/skills` |
@@ -106,4 +108,4 @@ Official implementations only — no community or third-party wrappers.
 
 _Know of a skill, MCP server, or official agent integration we're missing? [Open a PR](https://github.com/maxyz-xyz/DEGEN.md/pulls)._
 
-_Last updated: 2026-07-10_
+_Last updated: 2026-08-24_
