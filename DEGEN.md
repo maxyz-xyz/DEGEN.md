@@ -28,6 +28,7 @@ Included so far:
 
 - 1inch (plugin, skill, MCP)
 - Alchemy (MCP)
+- Arkham (MCP)
 - Base (skill, MCP)
 - BNB Chain (MCP)
 - Chainlink (skill)
@@ -65,6 +66,7 @@ Official implementations only — no community or third-party wrappers.
 |----------|----------|-------------|------|------|------------|----------|---------|
 | [1inch](https://github.com/1inch/1inch-ai) | DeFi | Token swaps, limit orders, SDK examples, and authenticated product API access across EVM chains | Plugin, Skill, MCP | API key or OAuth for protected tools | Yes (public tools) | [llms.txt](https://business.1inch.com/llms.txt) | `claude mcp add --transport http --scope user 1inch-mcp https://api.1inch.com/mcp/protocol` |
 | [Alchemy](https://www.alchemy.com/docs/alchemy-mcp-server) | Data | Node infrastructure — 168 tools spanning RPC calls, ENS resolution, token prices, NFT metadata, tx simulation/tracing, account abstraction, smart wallets, and Solana DAS across 100+ networks | MCP | OAuth (sign in with Alchemy account) | Yes | [llms.txt](https://www.alchemy.com/docs/llms.txt) | `claude mcp add alchemy --transport http https://mcp.alchemy.com/mcp` |
+| [Arkham](https://arkm.com/api/docs#add-ons/mcp) | Data | Blockchain intelligence — entity attribution, address labels, transfers, top counterparties, token flows, and risk scoring across 20+ chains (responses capped at ~4 MB; use the API for bulk) | MCP | `ARKHAM_API_KEY` bearer | No (trial on request) | [llms.txt](https://arkm.com/llms.txt) | `claude mcp add --transport http arkham https://mcp.arkm.com/mcp --header "Authorization: Bearer <ARKHAM_API_KEY>" --scope user` |
 | [Base](https://github.com/base/skills) | Infra | Agent wallet via Base Account — balances, sends, swaps, signing, x402 payments, batched calls (EIP-5792), tx history, plus 20+ third-party DeFi/NFT plugins (Uniswap, Morpho, Aerodrome, OpenSea, etc.) | Skill, MCP | OAuth (Base Account approval) | Yes | [llms.txt](https://docs.base.org/llms.txt) | `claude mcp add --transport http base-mcp https://mcp.base.org` |
 | [BNB Chain](https://github.com/bnb-chain/bnbchain-mcp) | Infra | BSC, opBNB, Greenfield — blocks, contracts, tokens, NFTs, transactions, wallet ops, ERC-8004 agent identities | MCP | `PRIVATE_KEY` optional for write/wallet ops | Yes | — | `claude mcp add bnbchain -- npx -y @bnb-chain/mcp@latest` |
 | [Chainlink](https://github.com/smartcontractkit/chainlink-agent-skills) | Infra | Oracle & messaging skills — CRE workflows, CCIP transfers/CCT, Data Feeds, Data Streams, VRF, ACE compliance, confidential AI attestation | Skill | — | Yes | [llms.txt](https://docs.chain.link/llms.txt) | `npx skills add smartcontractkit/chainlink-agent-skills` |
